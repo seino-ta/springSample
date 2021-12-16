@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Hello</title>
-<link href="/css/list.css" rel="stylesheet"></link>
-<meta charset="utf-8" />
-</head>
-<body>
-    <h1>Person情報一覧</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>名前</th>
-                <th>年齢</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="person : ${personList}" th:object="${person}">
-                <td class="center" th:text="*{id}"></td>
-                <td th:text="*{name}"></td>
-                <td th:text="*{age}"></td>
-            </tr>
-        </tbody>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    </table>
+<head>
+	<title>Show Person List</title>
+	<link href="/css/list.css" rel="stylesheet">
+	</link>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>Person情報一覧</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>年齢</th>
+				<th>参照</th>
+				<th>編集</th>
+				<th>削除</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="person : ${personList}" th:object="${person}">
+				<td class="center" th:text="*{id}"></td>
+				<td th:text="*{name}"></td>
+				<td th:text="*{age}"></td>
+				<td><a class="btn btn-default btn-xs" th:href="@{/person/{id}(id=*{id})}">参照</a></td>
+				<td><a class="btn btn-default btn-xs" th:href="@{/person/{id}/edit(id=*{id})}">編集</a></td>
+				<td>
+					<form th:action="@{/person/{id}/delete(id=*{id})}" th:method="delete">
+						<input class="btn btn-default btn-xs" type="submit" value="削除" />
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div>
+		<a class="btn btn-default" href="/person/new">新規作成</a>
+	</div>
 </body>
+
 </html>

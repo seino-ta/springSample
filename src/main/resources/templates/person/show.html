@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Show Person</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Show Person</h1>
+      <div th:object="${person}">
+        <div>
+          <label>ID</label>
+          <p th:text="*{id}"></p>
+        </div>
+        <div>
+          <label>名前</label>
+          <p th:text="*{name}"></p>
+        </div>
+      </div>
+      <div>
+        <a class="btn btn-default" th:href="@{/person/{id}/edit(id=*{id})}">編集</a>
+      </div>
+      <div class="pull-right">
+        <a class="btn btn-link" href="/person/list">一覧画面へ</a>
+      </div>
+    </div>
+  </body>
+</html>

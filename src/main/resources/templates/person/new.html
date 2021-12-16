@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>New Person</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>New Person</h1>
+      <form th:action="@{/person/new}" th:method="post">
+        <div class="form-group">
+          <label class="control-label">名前</label>
+          <input class="form-control" type="text" name="name" />
+        </div>
+        <div class="form-group">
+          <label class="control-label">年齢</label>
+          <input class="form-control" type="number" name="age" />
+        </div>
+		<button class="btn btn-default" type="submit">作成</button>
+      </form>
+      <div class="pull-right">
+        <a class="btn btn-link" href="/person/list">一覧画面へ</a>
+      </div>
+    </div>
+  </body>
+</html>
