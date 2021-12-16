@@ -13,3 +13,7 @@ table th {
 .center {
     text-align: center;
 }
+
+#create {
+	margin: 10px;
+}

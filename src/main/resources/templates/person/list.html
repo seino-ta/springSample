@@ -4,21 +4,26 @@
 <head>
 	<title>Show Person List</title>
 	<link href="/css/list.css" rel="stylesheet">
-	</link>
-	<meta charset="utf-8" />
+	<link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+</link>
+<meta charset="utf-8" />
 </head>
 
 <body>
+	<script th:href="@{/webjars/jquery/3.5.0/js/jquery.min.js}"></script>
+	<script th:href="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+
 	<h1>Person情報一覧</h1>
 	<table>
 		<thead>
 			<tr>
-				<th>ID</th>
-				<th>名前</th>
-				<th>年齢</th>
-				<th>参照</th>
-				<th>編集</th>
-				<th>削除</th>
+				<th id="id">ID</th>
+				<th id="name">名前</th>
+				<th id="age">年齢</th>
+				<th id="refer">参照</!th>
+				<th id="edit">編集</th>
+				<th id="delete">削除</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,19 +31,19 @@
 				<td class="center" th:text="*{id}"></td>
 				<td th:text="*{name}"></td>
 				<td th:text="*{age}"></td>
-				<td><a class="btn btn-default btn-xs" th:href="@{/person/{id}(id=*{id})}">参照</a></td>
-				<td><a class="btn btn-default btn-xs" th:href="@{/person/{id}/edit(id=*{id})}">編集</a></td>
+				<td><a class="btn btn-outline-primary btn-sm" th:href="@{/person/{id}(id=*{id})}">参照</a></td>
+				<td><a class="btn btn-outline-success btn-sm" th:href="@{/person/{id}/edit(id=*{id})}">編集</a></td>
 				<td>
 					<form th:action="@{/person/{id}/delete(id=*{id})}" th:method="delete">
-						<input class="btn btn-default btn-xs" type="submit" value="削除" />
+						<input class="btn btn-outline-danger btn-sm" type="submit" value="削除" />
 					</form>
 				</td>
 			</tr>
 		</tbody>
 	</table>
-	<div>
-		<a class="btn btn-default" href="/person/new">新規作成</a>
-	</div>
+	<div id="create">
+		<a class="btn btn-primary" href="/person/new">新規作成</a>
+	</div >
 </body>
 
 </html>
