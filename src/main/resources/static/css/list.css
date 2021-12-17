@@ -13,7 +13,9 @@ table th {
 .center {
     text-align: center;
 }
-
 #create {
 	margin: 10px;
+}
+#list {
+    text-align: right;
 }
