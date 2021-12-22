@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8" />
-    <title>New Person</title>
-    <!--Bootstrap CSS -->
+    <title>Create Person</title>
+    <link href="/css/list.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
     <div class="container">
-      <h1>New Person</h1>
+      <h1>Create Person</h1>
       <form th:action="@{/person/new}" th:method="post">
         <div class="form-row mb-4">
           <label class="control-label">名前</label>
@@ -20,8 +20,8 @@
         </div>
 		<button class="btn btn-outline-primary btn-sm" type="submit">作成</button>
       </form>
-      <div class="pull-right">
-        <a class="btn btn-link" href="/person/list">一覧画面へ</a>
+      <div id ="righttext">
+        <a class="btn btn-link" id ="linktext" href="/person/list">一覧画面へ</a>
       </div>
     </div>
   </body>

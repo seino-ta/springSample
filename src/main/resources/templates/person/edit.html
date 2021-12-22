@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8" />
-    <title>Editing Persom</title>
-    <!--Bootstrap CSS -->
+    <title>Edit Person</title>
+    <link href="/css/list.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
     <script th:href="@{/webjars/jquery/3.5.0/js/jquery.min.js}"></script>
     <script th:href="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
     <div class="container">
-      <h1>Editing Person</h1>
+      <h1>Edit Person Information</h1>
       <form th:action="@{/person/{id}(id=*{id})}" th:method="put" th:object="${person}">
         <div class="form-row mb-4">
           <label class="control-label">名前</label>
@@ -21,9 +21,9 @@
           <input class="form-control" type="number" th:field="*{age}" />
         </div>
         <button class="btn btn-outline-info btn-sm" type="submit">更新</button>
-      </form>
-      <div class="pull-right">
-        <a class="btn btn-link" href="/person/list">一覧画面へ</a>
+      </form >
+      <div id ="righttext">
+        <a class="btn btn-link" id ="linktext"  href="/person/list">一覧画面へ</a >
       </div>
     </div>
   </body>

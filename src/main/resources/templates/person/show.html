@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <title>Show Person</title>
-    <!--Bootstrap CSS -->
+    <link href="/css/list.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
     <div class="container">
-      <h1>Show Person</h1>
+      <h1>Show Person Information</h1>
       <div th:object="${person}">
         <div class="form-row">
           <label class="control-label">ID</label >
@@ -24,8 +24,8 @@
         </div>
       </div>
         <a class="btn btn-outline-success btn-sm" th:href="@{/person/{id}/edit(id=*{id})}">編集</a>
-      <div class="pull-right">
-        <a class="btn btn-link" href="/person/list">一覧画面へ</a>
+      <div id ="righttext">
+        <a class="btn btn-link" id ="linktext" href="/person/list">一覧画面へ</a>
       </div>
     </div>
   </body>

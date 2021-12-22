@@ -19,3 +19,9 @@ table th {
 #list {
     text-align: right;
 }
+#righttext {
+    text-align: right;
+}
+#linktext {
+    color:black;
+}
