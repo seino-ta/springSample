@@ -3,25 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <title>Show Person</title>
+    <link href="/css/list.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
     <div class="container">
-      <h1>Show Person</h1>
+      <h1>Show Person Information</h1>
       <div th:object="${person}">
-        <div>
-          <label>ID</label>
-          <p th:text="*{id}"></p>
+        <div class="form-row">
+          <label class="control-label">ID</label>
+          <p class="form-control" th:text="*{id}"></p>
         </div>
-        <div>
-          <label>名前</label>
-          <p th:text="*{name}"></p>
+        <div class="form-row">
+          <label class="control-label">名前</label >
+          <p class="form-control" th:text="*{name}"></p>
+        </div>
+        <div class="form-row">
+          <label class="control-label">年齢</label >
+          <p class="form-control" th:text="*{age}"></p>
         </div>
       </div>
-      <div>
-        <a class="btn btn-default" th:href="@{/person/{id}/edit(id=*{id})}">編集</a>
-      </div>
-      <div class="pull-right">
-        <a class="btn btn-link" href="/person/list">一覧画面へ</a>
+        <a class="btn btn-outline-success btn-sm" th:href="@{/person/{id}/edit(id=*{id})}">編集</a>
+      <div id ="righttext">
+        <a class="btn btn-link" id ="linktext" href="/person/list">一覧画面へ</a>
       </div>
     </div>
   </body>
