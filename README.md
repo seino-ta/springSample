@@ -18,5 +18,5 @@ webアプリの利用にあたっての手順
  　 　CREATE TABLE person (id SERIAL PRIMARY KEY, name VARCHAR(16), age INT);  
 2.このソースをgit pullする  
 3.エクリプスでGradleプロジェクトとしてインポートする（Gradle > Existing Gradle Project）  
-  3.1 application.propertiesのspring.datasource.passwordをXXXXXXXXに変更する  
+ 　3.1 application.propertiesのspring.datasource.passwordをXXXXXXXXに変更する  
 4.「実行(R)」⇒「Spring Bootアプリケーション」で実行  
