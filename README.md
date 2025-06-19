@@ -13,9 +13,10 @@ webアプリの利用にあたっての手順
  　 　DataBase : testdb  
  　 　ユーザー名 : postgres  
  　 　パスワード : XXXXXXXX    ※手順0で設定した接続情報  
- 　1.3 テーブル作成  
- 　 　以下sql実行  
- 　 　CREATE TABLE person (id SERIAL PRIMARY KEY, name VARCHAR(16), age INT);  
+ 　1.3 テーブル作成
+　　以下sql実行
+　　CREATE TABLE department (id SERIAL PRIMARY KEY, name VARCHAR(16));
+　　CREATE TABLE person (id SERIAL PRIMARY KEY, name VARCHAR(16), age INT, department_id INT REFERENCES department(id));
 2.このソースをgit cloneする  
 3.エクリプスでGradleプロジェクトとしてインポートする（Gradle > Existing Gradle Project）  
  　3.1 application.propertiesのspring.datasource.passwordをXXXXXXXXに変更する  

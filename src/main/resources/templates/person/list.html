@@ -20,8 +20,9 @@
 			<tr>
 				<th id="id">ID</th>
 				<th id="name">名前</th>
-				<th id="age">年齢</th>
-				<th id="refer">参照</!th>
+                               <th id="age">年齢</th>
+                               <th id="department">部署</th>
+                               <th id="refer">参照</!th>
 				<th id="edit">編集</th>
 				<th id="delete">削除</th>
 			</tr>
@@ -30,8 +31,9 @@
 			<tr th:each="person : ${personList}" th:object="${person}">
 				<td class="center" th:text="*{id}"></td>
 				<td th:text="*{name}"></td>
-				<td th:text="*{age}"></td>
-				<td><a class="btn btn-outline-primary btn-sm" th:href="@{/person/{id}(id=*{id})}">参照</a></td>
+                               <td th:text="*{age}"></td>
+                               <td th:text="*{department.name}"></td>
+                               <td><a class="btn btn-outline-primary btn-sm" th:href="@{/person/{id}(id=*{id})}">参照</a></td>
 				<td><a class="btn btn-outline-success btn-sm" th:href="@{/person/{id}/edit(id=*{id})}">編集</a></td>
 				<td>
 					<form th:action="@{/person/{id}/delete(id=*{id})}" th:method="delete">

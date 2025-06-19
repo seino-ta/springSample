@@ -20,6 +20,12 @@
           <label class="control-label">年齢</label>
           <input class="form-control" type="number" th:field="*{age}" />
         </div>
+        <div class="form-row mb-4">
+          <label class="control-label">部署</label>
+          <select class="form-control" th:field="*{department.id}">
+            <option th:each="dept : ${departmentList}" th:value="${dept.id}" th:text="${dept.name}"></option>
+          </select>
+        </div>
         <button class="btn btn-outline-info btn-sm" type="submit">更新</button>
       </form >
       <div id ="righttext">
