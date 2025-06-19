@@ -18,7 +18,13 @@
           <label class="control-label">年齢</label>
           <input class="form-control" type="number" name="age" />
         </div>
-		<button class="btn btn-outline-primary btn-sm" type="submit">作成</button>
+        <div class="form-row mb-4">
+          <label class="control-label">部署</label>
+          <select class="form-control" name="department.id">
+            <option th:each="dept : ${departmentList}" th:value="${dept.id}" th:text="${dept.name}"></option>
+          </select>
+        </div>
+                <button class="btn btn-outline-primary btn-sm" type="submit">作成</button>
       </form>
       <div id ="righttext">
         <a class="btn btn-link" id ="linktext" href="/person/list">一覧画面へ</a>

@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.example.demo.entity.Department;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,8 +40,15 @@ public class Person {
 	/**
 	 * age
 	 */
-	@Column(name = "age", nullable = false)
-	private Long age;
+        @Column(name = "age", nullable = false)
+        private Long age;
+
+        /**
+         * 部署
+         */
+        @ManyToOne
+        @JoinColumn(name = "department_id")
+        private Department department;
 
 	public Long getId() {
 		return id;
@@ -54,8 +65,16 @@ public class Person {
 	public Long getAge() {
 		return age;
 	}
-	public void setAge(Long age) {
-		this.age = age;
-	}
+        public void setAge(Long age) {
+                this.age = age;
+        }
+
+        public Department getDepartment() {
+                return department;
+        }
+
+        public void setDepartment(Department department) {
+                this.department = department;
+        }
 
 }

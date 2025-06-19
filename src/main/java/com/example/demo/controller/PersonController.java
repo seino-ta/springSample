@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.entity.Person;
 import com.example.demo.service.PersonService;
+import com.example.demo.service.DepartmentService;
 
 /**
  * Person情報 Controller
@@ -23,8 +24,14 @@ public class PersonController {
 	/**
 	 * ユーザー情報 Service
 	 */
-	@Autowired
-	PersonService personService;
+        @Autowired
+        PersonService personService;
+
+        /**
+         * 部署 Service
+         */
+        @Autowired
+        DepartmentService departmentService;
 
 	/**
 	 * ユーザー情報一覧画面を表示
@@ -45,10 +52,11 @@ public class PersonController {
 	 * @param model Model
 	 * @return ユーザー作成画面のHTML
 	 */
-	@GetMapping("new")
-	String newPerson(@RequestBody(required = false) Model model) {
-		return "person/new";
-	}
+        @GetMapping("new")
+        String newPerson(Model model) {
+                model.addAttribute("departmentList", departmentService.findAll());
+                return "person/new";
+        }
 
 	/**
 	 * ユーザー個別編集画面表示
@@ -56,12 +64,13 @@ public class PersonController {
 	 * @param model Model
 	 * @return ユーザー個別編集画面のHTML
 	 */
-	@GetMapping("{id}/edit")
-	public String edit(@PathVariable Long id, Model model) {
-		Person person = personService.findOne(id);
-		model.addAttribute("person", person);
-		return "person/edit";
-	}
+        @GetMapping("{id}/edit")
+        public String edit(@PathVariable Long id, Model model) {
+                Person person = personService.findOne(id);
+                model.addAttribute("person", person);
+                model.addAttribute("departmentList", departmentService.findAll());
+                return "person/edit";
+        }
 
 	/**
 	 * ユーザー個別画面表示
